@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ExamenAwsApb.Models.Apuesta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Apuestas</h1>
+
+<p>
+    <a asp-action="Create">Crear nueva apuesta</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th>
+                Goles Real Madrid
+            </th>
+            <th>
+                Goles Manchester City
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdApuesta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GolesEquipoLocal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GolesEquipoVisitante)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

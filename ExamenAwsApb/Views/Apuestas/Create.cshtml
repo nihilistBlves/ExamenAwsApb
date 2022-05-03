@@ -1,0 +1,51 @@
+﻿@model ExamenAwsApb.Models.Apuesta
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear apuesta</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Usuario" class="control-label"></label>
+                <input asp-for="Usuario" class="form-control" />
+                <span asp-validation-for="Usuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Equipo Local</label>
+                <input type="hidden" asp-for="IdEquipoLocal" value="1" />
+                <input type="text" value="Real Madrid" class="form-control" disabled/>
+                <span asp-validation-for="IdEquipoLocal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Equipo Visitante</label>
+                <input type="hidden" asp-for="IdEquipoVisitante" value="2" />
+                <input type="text" value="Manchester City" class="form-control" disabled />
+                <span asp-validation-for="IdEquipoVisitante" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Goles Local</label>
+                <input asp-for="GolesEquipoLocal" class="form-control" />
+                <span asp-validation-for="GolesEquipoLocal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Goles Visitante</label>
+                <input asp-for="GolesEquipoVisitante" class="form-control" />
+                <span asp-validation-for="GolesEquipoVisitante" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear apuesta" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver al listado</a>
+</div>
+

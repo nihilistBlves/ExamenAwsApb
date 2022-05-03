@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ExamenAwsApb.Models.Jugador>
+
+@{
+    ViewData["Title"] = "VerJugadoresByEquipo";
+    Equipo equipo = (Equipo)ViewData["EQUIPO"];
+}
+
+<h1>Jugadores del @equipo.Nombre <img src="@equipo.Imagen" height="200"/></h1>
+
+<p>
+    <a asp-action="Create" asp-route-idequipo="@equipo.IdEquipo">Crear jugador</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdJugador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Posicion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdJugador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Posicion)
+            </td>
+            <td>
+                <img src="https://s3-examen.s3.amazonaws.com/@item.Imagen" height="200"/>
+            </td>
+            <td>
+                <a asp-controller="Jugadores" asp-action="Details" asp-route-id="@item.IdJugador">Detalles</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

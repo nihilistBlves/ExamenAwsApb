@@ -1,0 +1,46 @@
+﻿@model ExamenAwsApb.Models.Jugador
+
+@{
+    ViewData["Title"] = "Create";
+    Equipo equipo = (Equipo) ViewData["EQUIPO"];
+}
+
+<h1>Crear jugador</h1>
+
+<h4>Jugador</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Posicion" class="control-label"></label>
+                <input asp-for="Posicion" class="form-control" />
+                <span asp-validation-for="Posicion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imagen" class="control-label"></label>
+                <input type="file" name="imagen" class="form-control" />
+                <span asp-validation-for="Imagen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Equipo</label>
+                <input asp-for="IdEquipo" value="@equipo.IdEquipo" class="form-control" type="hidden"/>
+                <input type="text" value="@equipo.Nombre" disabled class="form-control"/>
+                <span asp-validation-for="IdEquipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear jugador" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="VerJugadoresByEquipo" asp-route-idequipo="@equipo.IdEquipo">Volver al listado</a>
+</div>

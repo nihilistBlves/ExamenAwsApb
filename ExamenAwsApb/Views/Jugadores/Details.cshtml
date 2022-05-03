@@ -1,0 +1,47 @@
+﻿@model ExamenAwsApb.Models.Jugador
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Jugador</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdJugador)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdJugador)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Posicion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Posicion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imagen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imagen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdEquipo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdEquipo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="VerJugadoresByEquipo" asp-route-idequipo="@Model.IdEquipo">Volver al listado</a>
+</div>
